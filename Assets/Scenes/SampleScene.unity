@@ -131,33 +131,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 262463005}
-  - component: {fileID: 262463004}
+  - component: {fileID: 262463006}
   m_Layer: 0
-  m_Name: FruitPool
+  m_Name: FruitSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &262463004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 262463003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbc83eb0284023847acf8802422e92c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spawnPoints:
-  - {fileID: 1387879292}
-  - {fileID: 1912382063}
-  - {fileID: 1150606236}
-  _prefab: {fileID: -3455526232689874652, guid: 39c77d0104573b540b3aeed634e3dda2, type: 3}
-  _poolCapacity: 5
-  _poolMaxSize: 10
 --- !u!4 &262463005
 Transform:
   m_ObjectHideFlags: 0
@@ -173,6 +154,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &262463006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262463003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: febd169e1b0cf544d93c7b2f25619e21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnPoints:
+  - {fileID: 1387879292}
+  - {fileID: 1912382063}
+  - {fileID: 1150606236}
+  _prefab: {fileID: -3455526232689874652, guid: 39c77d0104573b540b3aeed634e3dda2, type: 3}
+  _poolCapacity: 5
+  _poolMaxSize: 10
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,10 +278,11 @@ GameObject:
   - component: {fileID: 593357719}
   - component: {fileID: 593357723}
   - component: {fileID: 593357724}
+  - component: {fileID: 593357729}
+  - component: {fileID: 593357728}
+  - component: {fileID: 593357727}
   - component: {fileID: 593357726}
   - component: {fileID: 593357725}
-  - component: {fileID: 593357727}
-  - component: {fileID: 593357728}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -458,10 +459,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 593357718}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9cda3008c341ce44af54e2f95396ea4, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f72b8ff496aba441934a04b22cdf1b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spriteRenderer: {fileID: 593357719}
 --- !u!114 &593357726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -483,9 +483,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 593357718}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 115907aa98316eb42956b012eafd0423, type: 3}
+  m_Script: {fileID: 11500000, guid: bd6308c7e70a77740b50e527a179212b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _waypoints:
+  - {fileID: 1435660706}
+  - {fileID: 1786177742}
 --- !u!114 &593357728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -495,12 +498,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 593357718}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd6308c7e70a77740b50e527a179212b, type: 3}
+  m_Script: {fileID: 11500000, guid: f9cda3008c341ce44af54e2f95396ea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _waypoints:
-  - {fileID: 1435660706}
-  - {fileID: 1786177742}
+--- !u!114 &593357729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593357718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 115907aa98316eb42956b012eafd0423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &687245688
 GameObject:
   m_ObjectHideFlags: 0
@@ -2664,51 +2676,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &888082687
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 888082689}
-  - component: {fileID: 888082688}
-  m_Layer: 0
-  m_Name: Spawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &888082688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 888082687}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: febd169e1b0cf544d93c7b2f25619e21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _fruitPool: {fileID: 262463004}
---- !u!4 &888082689
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 888082687}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.79682356, y: 0.67797226, z: -0.0888435}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1050967122
 GameObject:
   m_ObjectHideFlags: 0
@@ -3300,7 +3267,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9cda3008c341ce44af54e2f95396ea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spriteRenderer: {fileID: 1709949921}
 --- !u!114 &1709949937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3505,4 +3471,3 @@ SceneRoots:
   - {fileID: 262463005}
   - {fileID: 593357721}
   - {fileID: 1969480580}
-  - {fileID: 888082689}

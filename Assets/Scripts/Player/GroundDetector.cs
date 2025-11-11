@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GroundDetector : MonoBehaviour
 {
-    [SerializeField] LayerMask _ground;
+    [SerializeField] private LayerMask _ground;
     
     private bool _isGround;
     private float _rayDistance = 0.6f;

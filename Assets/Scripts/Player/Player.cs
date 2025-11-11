@@ -29,6 +29,20 @@ public class Player : MonoBehaviour
         _animator = GetComponent<PlayerAnimator>();
         _rigidbody = GetComponent<Rigidbody2D>();
     }
+    
+    private void FixedUpdate()
+    {
+        if (_inputReader.Direction != 0)
+        {
+            _mover.Move(_inputReader.Direction);
+        }
+
+        if (_inputReader.GetIsJump() && _groundDetector.IsGrounded())
+        {
+            _animator.StartJumpAnimation();
+            _jumper.Jump();
+        }
+    }
 
     private void Update()
     {
@@ -50,20 +64,6 @@ public class Player : MonoBehaviour
         {
             _mover.StopMove();
             _animator.StopMoveAnimation();
-        }
-    }
-
-    private void FixedUpdate()
-    {
-        if (_inputReader.Direction != 0)
-        {
-            _mover.Move(_inputReader.Direction);
-        }
-
-        if (_inputReader.GetIsJump() && _groundDetector.IsGrounded())
-        {
-            _animator.StartJumpAnimation();
-            _jumper.Jump();
         }
     }
 

@@ -5,17 +5,13 @@ public class PlayerAnimator : MonoBehaviour
 {
     private Animator _animator;
 
-    private int _isMovingKeyHash;
-    private int _jumpKeyHash;
-    private int _fallKeyHash;
+    private readonly int _isMovingKeyHash = Animator.StringToHash("IsMoving");
+    private readonly int _jumpKeyHash = Animator.StringToHash("Jump");
+    private readonly int _fallKeyHash = Animator.StringToHash("IsFall");
 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
-        
-        _isMovingKeyHash = Animator.StringToHash("IsMoving");
-        _jumpKeyHash = Animator.StringToHash("Jump");
-        _fallKeyHash = Animator.StringToHash("IsFall");
     }
 
     public void StartMoveAnimation()
